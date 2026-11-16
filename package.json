@@ -1,0 +1,19 @@
+{
+  "name": "local-fit-push-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MVP de pruebas de notificaciones Web Push con PWA, VAPID y NestJS",
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm --filter @push-test/web build && pnpm --filter @push-test/api build",
+    "start": "pnpm --filter @push-test/api start:prod",
+    "typecheck": "pnpm -r typecheck",
+    "icons": "node scripts/generate-icons.mjs",
+    "vapid:keys": "pnpm --filter @push-test/api exec web-push generate-vapid-keys",
+    "setup": "pnpm install && pnpm icons"
+  }
+}
